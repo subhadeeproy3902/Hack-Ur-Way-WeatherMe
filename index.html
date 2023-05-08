@@ -1,0 +1,291 @@
+<HTML>
+
+<HEAD>
+    <TITLE>WeatherMe</TITLE>
+    <link rel="shortcut icon" href="images/weatheme2.png" type="image/x-icon" />
+    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen, projection" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/weather-icons.css" />
+    <link type="text/css" rel="stylesheet" href="styles.css" media="screen, projection" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4fa584">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="/icons/icon-96x96.png">
+    <meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
+</HEAD>
+
+<body>
+
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="mdl-layout__header hide-on-large-only z-depth-3" style="display: fixed;">
+            <div class="mdl-layout__header-row">
+                <div class="mdl-layout-spacer"></div>
+                <img src="images/weatheme2.png" width="32px" height="32px">
+                <span class="mdl-layout-title">The Weather App</span>
+                <div class="mdl-layout-spacer"></div>
+                <button class="mdl-button mdl-js-button mdl-button--icon main-menu" onclick="refresh()">
+                    <i class="material-icons">refresh</i>
+                </button>
+            </div>
+        </header>
+
+        <!--Right Side Nav Drawer-->
+
+        <div id="rightNav" class="mdl-layout__drawer mdl-layout--fixed-drawer drawer-right hide-on-small-and-down">
+
+            <!--Date Widget-->
+
+            <div class="my-date">
+                <p
+                    style="text-align: center; font-weight: bold; color: #eee; font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+                    Last
+                    updated</p>
+                <span id="time" style="font-weight: bold; color: white;" align="center">Time</span>
+                <span id="wday" style="font-weight: bold; color: white;" align="center">Day</span>
+                <h2 align="center" style="font-weight: bold; color: white;" id="mdate">00</h2>
+                <div class="moye">
+                    <span id="month" style="font-weight: bold; color: white;">Month</span>
+                    <span id="year" style="font-weight: bold; color: white;">&nbsp;Year</span>
+                </div>
+            </div>
+            <div class="mdl-layout-title subtitle" style="margin-top: 10px;">
+                <img src="images/place.png" class="nav-icon">
+                <span style="padding: 4 18 0 4;">Locations</span>
+                <button class="mdl-button mdl-js-button mdl-button--icon" onclick="getLocation()">
+                    <i class="material-icons">my_location</i>
+                </button>
+            </div>
+            <nav id="locationList" class="mdl-navigation my-nav">
+                <form
+                    style="margin: 0px 7%; font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+                    <div class="input-field" style="margin-top: 30px;">
+                        <input id="addLocation" type="text" class="validate" style="color: var(--text)">
+                        <label style="width: auto" for="addLocation">Add location</label>
+                    </div>
+                    <a id="fab" class="btn-floating waves-effect scale-transition scale-out" style="float: right">
+                        <i class="material-icons prefix">add</i>
+                    </a>
+                </form>
+            </nav>
+        </div>
+
+        <!--Mobile side Nav-->
+
+        <div class="mdl-layout__drawer">
+            <header class="nav-drawer-header">
+                <img src="icons/weatherme.png" class="nav-avatar">
+            </header>
+            <span class="mdl-layout-title site-title">WeatherMe</span>
+            <nav class="mdl-navigation my-nav">
+
+            </nav>
+            <nav id="mobileLocation" class="mdl-navigation my-nav hide-on-med-and-up">
+                <div class="mdl-layout-title subtitle">
+                    <img src="images/place.png" class="nav-icon">
+                    <span style="padding: 4 18 0 4;">Locations</span>
+                    <button class="mdl-button mdl-js-button mdl-button--icon" onclick="getLocation()">
+                        <i class="material-icons">my_location</i>
+                    </button>
+                </div>
+            </nav>
+            <nav class="mdl-navigation my-nav">
+
+                <a class="mdl-navigation__link" style="cursor: default;">
+                    Units
+                    <form class="prefs">
+                        <p style="margin-bottom: 8px; margin-top: 10px;">
+                            <label>
+                                <input name="tempunit" type="radio" checked class="with-gap" value="metric"
+                                    onclick="changeUnit()" />
+                                <span> °C</span>
+                            </label>
+                        </p>
+                        <p style="margin: 0px;">
+                            <label>
+                                <input name="tempunit" type="radio" class="with-gap" value="imperial"
+                                    onclick="changeUnit()" />
+                                <span> °F</span>
+                            </label>
+                        </p>
+                    </form>
+                </a>
+                <a class="mdl-navigation__link" style="cursor: default;">
+                    Theme
+                    <form>
+                        <div class="switch">
+                            <label>
+                                Dark Theme
+                                <input name="theme" type="checkbox" onclick="themer()">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </form>
+                </a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+
+                <!-- Main content goes here -->
+
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card z-depth-2 main-card loading">
+                            <div id="grad" class="card-image">
+                                <span id="location" class="card-subtitle"></span>
+                                <span id="mainIcon"></span>
+                                <span id="temp" class="main-temp">--</span>
+                            </div>
+                            <div class="card-content info" style="padding: 10px 10px 0px 10px;">
+
+                                <div id="loader" class="progress">
+                                    <div class="indeterminate"></div>
+                                </div>
+                                <div style="overflow: hidden;"></div>
+                                <div id="content" class="hide">
+                                    <div class="row">
+                                        <div class="col s8">
+                                            <h4 style="margin: 0px; margin-top: 5px;">
+                                                <span id="title" class="col s12 card-title ui-text truncate">No data
+                                                    available..</span>
+                                            </h4>
+                                            <span id="desc" class="col s12 ui-text" style="padding:0 16px;"></span>
+                                        </div>
+                                        <div class="col s4 feels-like">
+                                            <h6>Feels like</h6>
+                                            <span id="fl-temp"></span>
+                                        </div>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <div class="row" style="margin: 0px; padding-bottom: 10px">
+                                        <div class='ui'>
+                                            <div class="col s6 ">
+                                                <div class='ui_box col s12'>
+                                                    <div class="stat-text">
+                                                        <h5>
+                                                            <i class="wi wi-raindrop"></i>&nbsp;&nbsp;&nbsp;Humidity
+                                                        </h5>
+                                                        <div class='ui_box__inner'>
+                                                            <div class='stat'>
+                                                                <span id="humid">--</span>
+                                                            </div>
+                                                            <div class='progress'>
+                                                                <div class='progress_bar' id="humidBar"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col s6 ">
+                                                <div class='ui_box col s12'>
+                                                    <div class="stat-text">
+                                                        <h5>
+                                                            <i
+                                                                class="wi wi-strong-wind"></i>&nbsp;&nbsp;&nbsp;Wind&nbsp;&nbsp;&nbsp;
+                                                        </h5>
+                                                        <div class='ui_box__inner'>
+                                                            <div class='stat'>
+                                                                <span id="wind">--</span>
+                                                            </div>
+                                                            <div class='progress' style="height: 0px"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <div
+                                        style="padding: 12px 5%; display: flex; justify-content: space-between; color: var(--text)">
+                                        <div>
+                                            <i class="wi wi-sunrise"></i>
+                                            <span id="sr">Sunrise:</span>
+                                        </div>
+                                        <div>
+                                            <i class="wi wi-sunset"></i>
+                                            <span id="ss">Sunset:</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card z-depth-2" style="border-radius:10px !important;">
+
+                            <div class="row" style="margin: 0px; padding-bottom: 10px;">
+                                <div class="col s12">
+                                    <div class="card-content">
+                                        <span class="card-title"
+                                            style="padding:10px; font-size:16px; text-align:center;">Temperature
+                                            variation (7 Day forecast)</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 chart-wrapper">
+                                    <div class="chartbox" id="chart-container"
+                                        style="position: relative; height: 40vh;">
+                                        <canvas id="canvas"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card z-depth-2" style="border-radius:10px !important;">
+                            <div class="row" style="margin: 0px; padding-bottom: 10px">
+                                <div class="card-content">
+                                    <span class="card-title"
+                                        style="padding:10px; font-size:16px; text-align:center;">Cloud cover</span>
+                                    <div id="cload" class="progress">
+                                        <div class="indeterminate"></div>
+                                    </div>
+                                </div>
+                                <div id="graph" class="hide">
+                                    <div class="col s4 xs">
+                                        <div class='ui col s12'>
+                                            <div class="stat-text">
+
+                                                <div class='ui_box__inner' style="padding-top: 10px">
+                                                    <div class='stat'>
+                                                        <h5 style="display:inline">
+                                                            <i class="wi wi-cloud"></i>&nbsp;Clouds&nbsp;&nbsp;
+                                                        </h5>
+                                                        <span id="cloudCover">--</span>
+                                                    </div>
+                                                    <div class='progress'>
+                                                        <div class='progress_bar' id="cloudBar"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col s8 xs chart-wrapper" style="position: relative; height:25vh;">
+                                        <div class="chartbox" id="cloud-chart-container">
+                                            <canvas id="cloudCanvas"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="js/material.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</HTML>
