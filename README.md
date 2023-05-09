@@ -1,5 +1,5 @@
-# The Weather App
-
+# The Weather App (WeatherME)
+ 
 A simple material design weather website application with all the features present in a weather App.
 
 ## To get started - 
