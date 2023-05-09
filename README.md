@@ -42,9 +42,9 @@ b. Openweather API
 
 |                Dark Theme              |                Light Theme              |
 |:-:|:-:|
-| ![TabletLayout](./doc_assets/ss3.png)  |  ![TabletLayout](./doc_assets/ss1.png)  |
-| ![TabletLayout](./doc_assets/ss4.png)  |  ![TabletLayout](./doc_assets/ss2.png)  |
-| ![TabletLayout](./doc_assets/ss6.png)  |  ![TabletLayout](./doc_assets/ss3.png)  |
-| ![TabletLayout](./doc_assets/ss7.png)  |  ![TabletLayout](./doc_assets/ss8.png)  |
-| ![TabletLayout](./doc_assets/ss9.png)  |  ![TabletLayout](./doc_assets/ss10.png)  |
+| ![TabletLayout](./doc_assets/ss5.jpg)  |  ![TabletLayout](./doc_assets/ss1.jpg)  |
+| ![TabletLayout](./doc_assets/ss4.jpg)  |  ![TabletLayout](./doc_assets/ss2.jpg)  |
+| ![TabletLayout](./doc_assets/ss6.jpg)  |  ![TabletLayout](./doc_assets/ss3.jpg)  |
+| ![TabletLayout](./doc_assets/ss7.PNG)  |  ![TabletLayout](./doc_assets/ss8.PNG)  |
+| ![TabletLayout](./doc_assets/ss9.PNG)  |  ![TabletLayout](./doc_assets/ss10.PNG)  |
 
