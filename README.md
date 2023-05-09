@@ -26,7 +26,7 @@ Tried many a lot things :
 
 a. Codepen.io
 
-b. Nicepage Desktop (About US page is made beautifully from it)
+b. Openweather API
 
 ### Worked on -
 
