@@ -18,7 +18,7 @@ Run the index.html file after downloading the project or simply u can visit <a t
 
 ## For a contest -
 
-![image](https://user-images.githubusercontent.com/111780029/218451295-fc8e463c-9d89-4b2c-b26c-1c01fa47d729.png)
+![image](./doc_assets/hackurway.png)
 
 ## Resources used - 
 
