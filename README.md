@@ -4,7 +4,7 @@ A simple material design weather website application with all the features prese
 
 ## To get started - 
 
-Run the index.html file after downloading the project or simply u can visit <a target="_blank" href="https://weatherme-chi.vercel.app/">iictmsl-3902.com</a> so tht your time doesnt get spent much 🙃
+Run the index.html file after downloading the project or simply u can visit <a target="_blank" href="https://weatherme-chi.vercel.app/">weatherme.com</a> so tht your time doesnt get spent much 🙃
 
 ## Features
 
