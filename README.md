@@ -48,3 +48,26 @@ b. Openweather API
 | ![TabletLayout](./doc_assets/ss7.PNG)  |  ![TabletLayout](./doc_assets/ss8.PNG)  |
 | ![TabletLayout](./doc_assets/ss9.PNG)  |  ![TabletLayout](./doc_assets/ss10.PNG)  |
 
+<br><br>
+## Contributions
+This project would not have been possible without the efforts of the following people:
+- Arunava Dutta &nbsp;[(@ArunavaCoderEm)](https://github.com/ArunavaCoderEm)
+- Satyaki Dey &nbsp;[(@SatyakiDey75)](https://github.com/SatyakiDey75)
+- Sonika Biswas &nbsp;[(@Sonika12Biswas)](https://github.com/Sonika12Biswas)
+- Subhadeep Roy &nbsp;[(@subhadeep3902)](https://github.com/subhadeep3902)
+
+
+## License
+[Apache License 2.0 © Weather Me](https://github.com/subhadeep3902/Hack-Ur-Way-WeatherMe/blob/main/LICENSE)
+
+
+
+## 🙋‍♂️ Support
+
+💙 If you like this project, do give it a ⭐ and share it with your friends!<br><br>
+
+---
+
+Made with ❤️ and HTML, CSS and JS. <br><br>
+
+
